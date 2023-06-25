@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./assets/css/style.css">
+	<link rel="stylesheet" href="./assets/css/modal.css">
+</head>
+
+<body>
+
+	<div class="modal">
+		<div class="modal-bg close"></div>
+		<div class="modal-content">
+			<div class="first-modal">
+				<div class="modal-header">
+					<span class="modal-content__title">Galerie photo</span>
+					<button class="modal-content__btn modal-content__btn-close close"><i class="fa-solid fa-xmark"></i></button>
+				</div>
+				<div class="modal-work-container"></div>
+				<div class="modal-footer">
+					<span class="modal-footer__border"></span>
+					<button class="modal-footer__btn modal-footer__add">Ajouter une photo</button>
+					<button class="modal-footer__remove-all">Supprimer la galerie</button>
+				</div>
+			</div>
+			<div class="second-modal">
+				<div class="modal-header">
+					<button class="modal-content__btn modal-content__btn-back"><i class="fa-solid fa-arrow-left"></i></button>
+					<span class="modal-content__title">Ajout photo</span>
+					<button class="modal-content__btn modal-content__btn-close close"><i class="fa-solid fa-xmark"></i></button>
+				</div>
+				    <form class="modal-form">
+						<div class="modal-form-image">
+							<img src="" alt="" class="modal-form-image__img">
+							<i class="modal-form-image__icon fa-regular fa-image"></i>
+							<label class="modal-form-image__label">+ Ajouter photo
+							<input class="modal-form-image__input" type="file" name="image" accept=".jpg, .png" required>
+							</label>
+							<p class="modal-form-image__p">jpg; png: 4mo max</p>
+						</div>
+						<div class="modal-form-info">
+							<label class="modal-label modal-form-info__title" for="text">Titre</label>
+							<input class="modal-input modal-form-info__text" type="text" name="title" required>
+							<label class="modal-label modal-form-info__categories" for="">Catégorie</label>
+							<select class="modal-input modal-form-info__select" name="categoryId" required></select>
+						</div>
+							<span class="modal-footer__border"></span>
+							<input type="submit" value="Valider" class="modal-footer__btn modal-footer__submit">
+					</form>
+			</div>
+		</div>
+	</div>
+
+<div class="edit-bar">
+	<button class="edit-bar__edition"><i class="fa-regular fa-pen-to-square"></i>Mode édition</button>
+	<button class="edit-bar__publish">publier les changements</button>
+</div>
+
+<div class="main-content">
+
+<header>
+
+	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+	<nav class="navbar">
+		<ul class="navbar-content">
+			<li><a class="navbar-content__link" href="#portfolio">projets</a></li>
+			<li><a class="navbar-content__link" href="#contact">contact</a></li>
+			<li><a class="navbar-content__link navbar-content__link-login" href="login.html">login</a></li>
+			<li><img class="navbar-content__link navbar-content__link-insta" src="./assets/icons/instagram.png" alt="Instagram"></li>
+		</ul>
+	</nav>
+
+</header>
+
+<main>
+
+	<section id="introduction">
+
+		<figure class="introduction-figure">
+			<img src="./assets/images/sophie-bluel.png" alt="">
+			<div class="introduction-modif-content modif-content">
+				<i class="fa-regular fa-pen-to-square modif-content__icon"></i>
+				<span class="modif-content__span">modifier</span>
+			</div>
+		</figure>
+		
+		<article class="introduction-article">
+			<div class="introduction-modif-content modif-content">
+				<i class="fa-regular fa-pen-to-square modif-content__icon"></i>
+				<span class="modif-content__span">modifier</span>
+			</div>
+			<h2 class="introduction-article__title">Designer d'espace</h2>
+			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
+			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
+		</article>
+
+	</section>
+
+	<section id="portfolio" class="portfolio">
+
+		<div class="portfolio-header">
+			<h2 class="portfolio__title">Mes Projets</h2>
+			<div class="portfolio-header-modif modif-content">
+				<i class="fa-regular fa-pen-to-square modif-content__icon trigger"></i>
+				<span class="modif-content__span portfolio-header__span trigger">modifier</span>
+			</div>
+		</div>
+
+		<div class="filters-container"></div>
+		<div class="gallery"></div>
+
+	</section>
+
+	<section id="contact">
+		<h2>Contact</h2>
+		<p>Vous avez un projet ? Discutons-en !</p>
+		<form action="#" method="post">
+			<label for="name">Nom</label>
+			<input type="text" name="name" id="name">
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email">
+			<label for="message">Message</label>
+			<textarea name="message" id="message" cols="30" rows="10"></textarea>
+			<input type="submit" value="Envoyer">
+		</form>
+	</section>
+
+</main>
+
+<footer>
+	<nav class="footer-navbar">
+		<ul class="footer-navbar__list">
+			<li class="footer-navbar__link">Mentions Légales</li>
+		</ul>
+	</nav>
+</footer>
+
+</div>
+
+<script src="./js/app.js" type="module"></script>
+</body>
+
+</html>

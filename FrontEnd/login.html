@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./assets/css/style.css">
+	<link rel="stylesheet" href="./assets/css/login.css">
+</head>
+
+<body>
+
+    <div class="main-content">
+        <header>
+            <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+            <nav class="navbar">
+                <ul class="navbar-content">
+                    <li><a class="navbar-content__link" href="index.html">projets</a></li>
+                    <li><a class="navbar-content__link" href="index.html">contact</a></li>
+                    <li><a class="navbar-content__link navbar-content__link-login" href="login.html">login</a></li>
+                    <li><img class="navbar-content__link navbar-content__link-insta" src="./assets/icons/instagram.png" alt="Instagram"></li>
+                </ul>
+            </nav>
+        </header>
+    
+    <main>
+    
+        <section class="login-section">
+            <div class="login-content">
+                <h2 class="login-content__title">Log In</h2>
+                <form class="login-form">
+                    <label class="login-form__label"for="email">E-mail</label>
+                    <input class="login-form__input login-form__input-email" type="email" name="email" id="email" required>
+                    <label class="login-form__label" for="mdp">Password</label>
+                    <input class="login-form__input login-form__input-password" type="password" name="mdp" id="mdp" required>
+                    <input class="login-form__input-connexion" type="submit" value="Se connecter">
+                </form>
+                <span class="login-content__error">Identifiant ou mot de passe incorrecte</span>
+                <a class="login-content__password-link" href="login.html">Mot de passe oublié</a>
+            </div>
+        </section>
+    
+    </main>
+    
+    <footer class="login-footer">
+        <nav class="footer-navbar">
+            <ul class="footer-navbar__list">
+                <li><a class="footer-navbar__link" href="#">Mentions Légales</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    </div>
+
+
+    <script src="js/functions/login.js"></script>
+</body>
+</html>
