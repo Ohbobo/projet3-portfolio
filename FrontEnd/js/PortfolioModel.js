@@ -1,10 +1,11 @@
 import { fetchCategories, fetchWorks, fetchDeleteWorks, fetchAddWorks } from "./api.js";
 
 export class PortfolioModel {
-    constructor() {
+    constructor(view) {
         this.buttonsData = [];
         this.worksData = [];
         this.filters = [];
+        this.view = view;
     }
 
     async fetchData() {
@@ -27,10 +28,25 @@ export class PortfolioModel {
     async deleteWorks(id) {
         try {
             await fetchDeleteWorks(id);
-            this.galleryData = this.galleryData.filter(item => item.id !== id);
+            this.worksData = this.worksData.filter(item => item.id !== id);
             this.filters = this.filters.filter(item => item.id !== id);
         } catch (error) {
             console.error("Une erreur s'est produite lors de la suppression:", error);
+        }
+    }
+    // Suppression de tous les works
+    async deleteAllWorks () {
+        try {
+          const works = await fetchWorks();
+          
+          for (const work of works) {
+            await fetchDeleteWorks(work.id);
+            this.worksData = this.worksData.filter(item => item.id !== work.id);
+            this.filters = this.filters.filter(item => item.id !== work.id);
+            console.log(`La ressource ${work.id} a été supprimée avec succès`);
+          }
+        } catch (error) {
+          console.error(error);
         }
     }
 

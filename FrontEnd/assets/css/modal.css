@@ -136,14 +136,6 @@
     font-size: 14px;
     border: none;
 }
-.modal-form-image__input{
-    display: none;
-}
-.modal-form-image__p {
-    font-family: 'Work Sans';
-    font-size: 10px;
-    color: #444444;
-}
 .modal-label {
     margin-bottom: 10px;
     font-family: 'Work Sans';
@@ -177,6 +169,19 @@
     height: 169px;
     background: #E8F1F7;
     border-radius: 3px;
+}
+.modal-form-image__img{
+    display: none;
+    Width: 129px;
+    height: 169px;
+}
+.modal-form-image__input{
+    display: none;
+}
+.modal-form-image__p {
+    font-family: 'Work Sans';
+    font-size: 10px;
+    color: #444444;
 }
 .modal-form-image__icon{
     font-size: 60px;

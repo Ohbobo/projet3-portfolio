@@ -18,12 +18,9 @@ const app = async () => {
     // Session admin lorsqu'on est connecté
     adminMode();
 
-    const filterButtons = document.querySelectorAll('.filters-container__btn');
-    filterButtons.forEach(filter => filterButtonsStyle(filter));
     //ouvrir la modal ajout photo + retour modal galerie au click
     const input = document.querySelector('.modal-form-image__input');
     input.addEventListener('change', previewImage);
-
 }
 
 app();
