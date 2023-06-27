@@ -104,15 +104,17 @@ export class PortfolioView {
   async handleAddWork(e) {
     e.preventDefault();
    
-    const imageUrl = document.querySelector('.modal-form-image__input').files[0];
-    const title = document.querySelector('.modal-form-info__text').value;
-    const categoryId = document.querySelector('.modal-form-info__select').value;
-
+    const imageUrl = document.querySelector('.modal-form-image__input');
+    const title = document.querySelector('.modal-form-info__text');
+    const categoryId = document.querySelector('.modal-form-info__select');
+    const submitButton = document.querySelector('.modal-footer__submit');
+  
+    
     const formData = new FormData();
-    formData.append('image', imageUrl);
-    formData.append('title', title);
-    formData.append('category', categoryId);
-
+    formData.append('image', imageUrl.files[0]);
+    formData.append('title', title.value);
+    formData.append('category', categoryId.value);
+  
     await this.model.addWorks(formData);
     await this.model.fetchData();// Mettre à jour les données après l'ajout
     this.updateData();// Mettre à jour l'affichage après l'ajout

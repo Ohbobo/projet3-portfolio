@@ -13,42 +13,41 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
 }
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 630px;
+    height: auto;
+    background: #FFFFFF;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+}
 .first-modal {
     display: block;
 }
 .first-modal.active {
     display: none;
 }
-.modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 630px;
-    height: 730px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    transform: translate(-50%, -50%);
-}
 .modal-header{
     display: flex;
     justify-content: center;
     margin-top: 60px;
 }
-.modal-content__title{
+.modal-header__title{
     font-family: 'Work Sans';
     font-size: 26px;
 }
-.modal-content__btn {
+.modal-header__btn {
     border: none;
     background: transparent;
 }
-.modal-content__btn-back{
+.modal-header__btn-back{
     position: absolute;
     top: 30px;
     left: 36px;
 }
-
-.modal-content__btn-close{
+.modal-header__btn-close{
     position: absolute;
     top: 30px;
     right: 36px;
@@ -96,6 +95,7 @@
     flex-direction: column;
     align-items: center;
     gap: 23px;
+    margin-bottom: 40px;
 }
 .modal-footer.active {
     display: none;
@@ -110,18 +110,10 @@
     display: flex;
     flex-direction: column;
     gap: 23px;
-}
-.modal-footer__btn:hover {
-    background: #0E2F28;
-}    
+} 
 .modal-footer__add {
     width: 237px;
     height: 36px;
-    color: white;
-    font-size: 14px;
-    background: #1D6154;
-    border-radius: 60px;
-    border: none;
 }
 .modal-article-container.active {
     margin-top: 40px;
@@ -131,13 +123,16 @@
 	padding: 0 70px;
 }
 .modal-footer__remove-all {
+    font-family: Syne;
     background: transparent;
     color: #D65353;
     font-size: 14px;
     border: none;
 }
 .modal-label {
-    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
@@ -157,7 +152,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    margin: 40px auto 40px;
 }
 .modal-form-image {
     display: flex;
@@ -221,10 +216,6 @@
 .modal-footer__submit {
     width: 237px;
     height: 36px;
-    color: white;
-    font-size: 14px;
-    background: #1D6154;
-    border-radius: 60px;
-    border: none;
-    cursor: pointer;
+    margin-top: 2em;
+    background-color: #A7A7A7;
 }

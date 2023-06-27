@@ -39,7 +39,7 @@ export const initModal = () => {
     // Revenir modal galerie photo + reset formualaire
     const backFirstModal = () => {
         
-        document.querySelector('.modal-content__btn-back').addEventListener('click', () => {
+        document.querySelector('.modal-header__btn-back').addEventListener('click', () => {
             document.querySelector('.first-modal').classList.remove('active');
             document.querySelector('.second-modal').classList.remove('active');
             removeForm();

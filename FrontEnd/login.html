@@ -10,6 +10,7 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/css/style.css">
 	<link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/normalize.css">
 </head>
 
 <body>
@@ -33,11 +34,11 @@
             <div class="login-content">
                 <h2 class="login-content__title">Log In</h2>
                 <form class="login-form">
-                    <label class="login-form__label"for="email">E-mail</label>
+                    <label class="login-form__label" for="email">E-mail</label>
                     <input class="login-form__input login-form__input-email" type="email" name="email" id="email" required>
                     <label class="login-form__label" for="mdp">Password</label>
                     <input class="login-form__input login-form__input-password" type="password" name="mdp" id="mdp" required>
-                    <input class="login-form__input-connexion" type="submit" value="Se connecter">
+                    <input class="login-form__input-connexion global-btn" type="submit" value="Se connecter">
                 </form>
                 <span class="login-content__error">Identifiant ou mot de passe incorrecte</span>
                 <a class="login-content__password-link" href="login.html">Mot de passe oublié</a>
