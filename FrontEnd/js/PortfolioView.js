@@ -3,7 +3,7 @@ export class PortfolioView {
 
   constructor(model) {
       this.model = model; // fait le lien avec PortfolioModelView permettant d'acceder au constructor
-      
+      //DOM Elements
       this.modal = document.querySelector('.modal');
       this.filtersContainer = document.querySelector('.filters-container');
       this.galleryContainer = document.querySelector('.gallery');
@@ -14,10 +14,10 @@ export class PortfolioView {
   }
   // EventListener
   events() {
-    this.filtersContainer.addEventListener('click', this.handleFilter.bind(this));
-    this.form.addEventListener('submit', this.handleAddWork.bind(this));
-    this.modalWorkContainer.addEventListener('click', this.handleDeleteWork.bind(this));
-    this.deleteAllWorksBtn.addEventListener('click', this.handleDeleteAllWorks.bind(this));
+    this.filtersContainer.addEventListener('click', this.handleFilter.bind(this)); // filtre la galerie en fonction de la catégorie
+    this.modalWorkContainer.addEventListener('click', this.handleDeleteWork.bind(this)); // supprime une photo de la galerie
+    this.deleteAllWorksBtn.addEventListener('click', this.handleDeleteAllWorks.bind(this)); // supprime toutes les photos de la galerie
+    this.form.addEventListener('submit', this.handleAddWork.bind(this)); // ajoute une photo à la galerie
   }
 
   //Affiche les boutons filtres
@@ -42,7 +42,6 @@ export class PortfolioView {
 
   //Affiche la galerie dans la modal
   displayModal() {
-    
     const modalContentHTML = this.model.filters.map(work => `
       <div class="modal-article">
         <img class="modal-article__img" src="${work.imageUrl}" alt="${work.title}">
@@ -57,7 +56,7 @@ export class PortfolioView {
     `).join('');
     this.inputCategoriesModal.innerHTML = `<option value=""></option>` + inputCategoriesHTML;
   }
-
+  // Met à jour l'affichage
   updateData() {
     this.displayFilterButtons(); 
     this.displayWorksGallery(); 
@@ -67,23 +66,22 @@ export class PortfolioView {
   handleFilter(e) {
     const id = e.target.id;
     const targetElement = e.target;
-  
+    // Filtre la galerie en fonction de la catégorie
+    if (id) {
+      this.model.worksFilter(id);
+      this.displayWorksGallery();
+      this.displayModal();
+    }
+    // Style du bouton actif
     if (targetElement.classList.contains('filters-container__btn')) {
       if (targetElement.classList.contains('filters-container__btn-active')) {
         return;
       }
-      const activeButton = document.querySelector('.filters-container__btn-active');
-      if (activeButton) {
-        activeButton.classList.remove('filters-container__btn-active');
-      }
+      document.querySelector('.filters-container__btn-active')?.classList.remove('filters-container__btn-active');
       targetElement.classList.add('filters-container__btn-active');
-      if (id) {
-        this.model.worksFilter(id);
-        this.displayWorksGallery();
-        this.displayModal();
-      }
     }
   }
+
   // supprime un élément
   async handleDeleteWork(e) {
     e.preventDefault();
@@ -95,7 +93,7 @@ export class PortfolioView {
   }
   // Supprime toute la galerie 
   async handleDeleteAllWorks() {
-    if (confirm("Êtes-vous sûr de vouloir supprimer tous les travaux ?")) {
+    if (confirm("Êtes-vous sûr de vouloir supprimer toute la galerie ?")) {
       await this.model.deleteAllWorks();
       await this.model.fetchData();
       this.updateData();
@@ -108,7 +106,6 @@ export class PortfolioView {
     const imageUrl = document.querySelector('.modal-form-image__input');
     const title = document.querySelector('.modal-form-info__text');
     const categoryId = document.querySelector('.modal-form-info__select');
-    const submitButton = document.querySelector('.modal-footer__submit');
     
     const formData = new FormData();
     formData.append('image', imageUrl.files[0]);

@@ -31,7 +31,6 @@ export const initModal = () => {
                 removeForm();
         }));
     }
-    
     // Ouvrir modal formulaire d'ajout
     const openSecondModal = () => {
     
@@ -50,27 +49,26 @@ export const initModal = () => {
             removeForm();
         });
     }
-    
+    // Change style du bouton submit en fonction de la saisie de l'utilisateur
     modalInputForm.forEach(input => {
         input.addEventListener('input', () => {
             if(!imageUrl.files[0]||!title.value||!categoryId.value){
-                submitButton.style.backgroundColor = "#A7A7A7";
-                submitButton.disabled = true;
+                submitButton.classList.remove('active');
             } else {
-                submitButton.style.backgroundColor = "#1D6154";
-                submitButton.disabled = false;
+                submitButton.classList.add('active');
             }
         })
-    });
-
+    })
     openModal();
     closeModal();
     openSecondModal();
     backFirstModal();
+
+    const input = document.querySelector('.modal-form-image__input');
+    input.addEventListener('change', previewImage); // Prévisualisation de l'image dans le formulaire au changement de l'input
 }
 // Previsualise l'image dans le formulaire 
-export const previewImage = (e) => {
-
+const previewImage = (e) => {
     const inputTarget = e.target;
     const reader = new FileReader();
 
@@ -90,7 +88,6 @@ export const previewImage = (e) => {
 }
 // Réinitialise le formulaire lors du retour ou fermeture de la modal
 const removeForm = () => {
-
     document.querySelector('.modal-form').reset();
     document.querySelector('.modal-form-image__img').src = "#";
     

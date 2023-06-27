@@ -49,7 +49,6 @@ export class PortfolioModel {
           console.error(error);
         }
     }
-
     //post
     async addWorks(formData) {
         try {

@@ -217,6 +217,18 @@
 .modal-footer__submit {
     width: 237px;
     height: 36px;
-    margin-top: 2em;
+	font-family: Syne;
+    font-size: 14px;
     background-color: #A7A7A7;
+	color: white;
+	border: none;
+	border-radius: 60px;
+    margin-top: 2em;
+	cursor: pointer;
+}
+.modal-footer__submit.active {
+    background-color: #1D6154;
+}
+.modal-footer__submit.active:hover {
+    background-color: #0E2F28;
 }

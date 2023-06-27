@@ -5,23 +5,26 @@ const modifContainer = document.querySelectorAll('.modif-content');
 const filtersContainer = document.querySelector('.filters-container');
 
 export const adminMode = () => {
-
-    if (localStorage.getItem('user')) {
+    const user = localStorage.getItem('user');
+    if (user) {
         //afficher la barre d'ajout si user connecté
-        localStorage.getItem('user') ? editBar.classList.add('active') : editBar.classList.remove('active');
-    
+        editBar.classList.add('active'); 
         //Bouton deconnexion 
-        localStorage.getItem('user') ? logBtn.innerHTML="logout" : logBtn.innerHTML="login";
-    
-        //boutons modifier
-        modifContainer.forEach(el => {el.classList.add('active');});
+        logBtn.innerHTML="logout";
         //enlever boutons filtres en mode admin
-        localStorage.getItem('user') ? filtersContainer.classList.add('active') : filtersContainer.classList.remove('active');
+        filtersContainer.classList.add('active');
+        //boutons modifier
+        modifContainer.forEach(el => {el.classList.add('active')});
+    } else {
+        editBar.classList.remove('active');
+        logBtn.innerHTML="login";
+        filtersContainer.classList.remove('active');
+ 
     }
+    
 }
 
 //deconnexion
-
 logBtn.addEventListener('click', () => {
     localStorage.removeItem('user');
 });
