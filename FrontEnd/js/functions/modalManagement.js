@@ -3,6 +3,11 @@ const icon = document.querySelector('.modal-form-image__icon');
 const label = document.querySelector('.modal-form-image__label');
 const input = document.querySelector('.modal-form-image__input');
 const paragraphe = document.querySelector('.modal-form-image__p');
+const modalInputForm = document.querySelectorAll('.modal-input');
+const imageUrl = document.querySelector('.modal-form-image__input');
+const title = document.querySelector('.modal-form-info__text');
+const categoryId = document.querySelector('.modal-form-info__select');
+const submitButton = document.querySelector('.modal-footer__submit');
 
 export const initModal = () => {
     // Ourvir la modal
@@ -45,6 +50,18 @@ export const initModal = () => {
             removeForm();
         });
     }
+    
+    modalInputForm.forEach(input => {
+        input.addEventListener('input', () => {
+            if(!imageUrl.files[0]||!title.value||!categoryId.value){
+                submitButton.style.backgroundColor = "#A7A7A7";
+                submitButton.disabled = true;
+            } else {
+                submitButton.style.backgroundColor = "#1D6154";
+                submitButton.disabled = false;
+            }
+        })
+    });
 
     openModal();
     closeModal();

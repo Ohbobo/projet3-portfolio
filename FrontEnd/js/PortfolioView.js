@@ -4,6 +4,7 @@ export class PortfolioView {
   constructor(model) {
       this.model = model; // fait le lien avec PortfolioModelView permettant d'acceder au constructor
       
+      this.modal = document.querySelector('.modal');
       this.filtersContainer = document.querySelector('.filters-container');
       this.galleryContainer = document.querySelector('.gallery');
       this.form = document.querySelector('.modal-form');
@@ -54,7 +55,7 @@ export class PortfolioView {
     const inputCategoriesHTML = this.model.buttonsData.map(cat => `
       <option value="${cat.id}">${cat.name}</option>
     `).join('');
-    this.inputCategoriesModal.innerHTML = `<option value="0"></option>` + inputCategoriesHTML;
+    this.inputCategoriesModal.innerHTML = `<option value=""></option>` + inputCategoriesHTML;
   }
 
   updateData() {
@@ -83,7 +84,7 @@ export class PortfolioView {
       }
     }
   }
-  
+  // supprime un élément
   async handleDeleteWork(e) {
     e.preventDefault();
 
@@ -92,7 +93,7 @@ export class PortfolioView {
     await this.model.fetchData();// Mettre à jour les données après la suppression
     this.updateData();// Mettre à jour l'affichage après la suppression
   }
-
+  // Supprime toute la galerie 
   async handleDeleteAllWorks() {
     if (confirm("Êtes-vous sûr de vouloir supprimer tous les travaux ?")) {
       await this.model.deleteAllWorks();
@@ -100,7 +101,7 @@ export class PortfolioView {
       this.updateData();
     }
   }
-
+  // Ajoute un element a la galerie
   async handleAddWork(e) {
     e.preventDefault();
    
@@ -108,18 +109,17 @@ export class PortfolioView {
     const title = document.querySelector('.modal-form-info__text');
     const categoryId = document.querySelector('.modal-form-info__select');
     const submitButton = document.querySelector('.modal-footer__submit');
-  
     
     const formData = new FormData();
     formData.append('image', imageUrl.files[0]);
     formData.append('title', title.value);
     formData.append('category', categoryId.value);
-  
+    
     await this.model.addWorks(formData);
     await this.model.fetchData();// Mettre à jour les données après l'ajout
     this.updateData();// Mettre à jour l'affichage après l'ajout
     this.form.reset();
-    document.querySelector('.modal-form-image__img').src = ""
+    document.querySelector('.modal-form-image__img').src = "";
+    this.modal.classList.remove('active');
   }
-
 }
