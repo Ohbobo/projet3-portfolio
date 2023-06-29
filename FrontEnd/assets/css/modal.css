@@ -171,19 +171,28 @@
     Width: 129px;
     height: 169px;
 }
-.modal-form-image__input{
+.modal-form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.modal-form-content.disabled {
     display: none;
 }
-.modal-form-image__p {
+.modal-form-content__input{
+    display: none;
+}
+.modal-form-content__p {
     font-family: 'Work Sans';
     font-size: 10px;
     color: #444444;
 }
-.modal-form-image__icon{
+.modal-form-content__icon{
     font-size: 60px;
     color: #B9C5CC;
 }
-.modal-form-image__label {
+.modal-form-content__label {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -198,7 +207,7 @@
     font-weight: 500;
     cursor: pointer;
 }
-.modal-form-image__input{
+.modal-form-content__input{
     display: none;
 }
 .modal-form-info {

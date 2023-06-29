@@ -11,6 +11,7 @@ export class PortfolioView {
       this.modalWorkContainer = document.querySelector('.modal-work-container');
       this.inputCategoriesModal = document.querySelector('.modal-form-info__select');
       this.deleteAllWorksBtn = document.querySelector('.modal-footer__remove-all');
+      this.modalFormContent = document.querySelector('.modal-form-content');
   }
   // EventListener
   events() {
@@ -103,10 +104,18 @@ export class PortfolioView {
   async handleAddWork(e) {
     e.preventDefault();
    
-    const imageUrl = document.querySelector('.modal-form-image__input');
+    const modalFormImg = document.querySelector('.modal-form-image__img');
+    const imageUrl = document.querySelector('.modal-form-content__input');
     const title = document.querySelector('.modal-form-info__text');
     const categoryId = document.querySelector('.modal-form-info__select');
-    
+
+    if(!imageUrl.files[0]||!title.value||!categoryId.value){
+      alert("Veuillez remplir tous les champs");
+      this.form.reset();
+      modalFormImg.src = "";
+      modalFormImg.style.display= "none";
+      this.modalFormContent.classList.remove('disabled');
+    } else {
     const formData = new FormData();
     formData.append('image', imageUrl.files[0]);
     formData.append('title', title.value);
@@ -117,6 +126,6 @@ export class PortfolioView {
     this.updateData();// Mettre à jour l'affichage après l'ajout
     this.form.reset();
     document.querySelector('.modal-form-image__img').src = "";
-    this.modal.classList.remove('active');
+    }
   }
 }

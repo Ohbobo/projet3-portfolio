@@ -1,13 +1,10 @@
 const img = document.querySelector('.modal-form-image__img');
-const icon = document.querySelector('.modal-form-image__icon');
-const label = document.querySelector('.modal-form-image__label');
-const input = document.querySelector('.modal-form-image__input');
-const paragraphe = document.querySelector('.modal-form-image__p');
 const modalInputForm = document.querySelectorAll('.modal-input');
-const imageUrl = document.querySelector('.modal-form-image__input');
+const imageUrl = document.querySelector('.modal-form-content__input');
 const title = document.querySelector('.modal-form-info__text');
 const categoryId = document.querySelector('.modal-form-info__select');
 const submitButton = document.querySelector('.modal-footer__submit');
+const modalFormContent = document.querySelector('.modal-form-content');
 
 export const initModal = () => {
     // Ourvir la modal
@@ -64,7 +61,7 @@ export const initModal = () => {
     openSecondModal();
     backFirstModal();
 
-    const input = document.querySelector('.modal-form-image__input');
+    const input = document.querySelector('.modal-form-content__input');
     input.addEventListener('change', previewImage); // Prévisualisation de l'image dans le formulaire au changement de l'input
 }
 // Previsualise l'image dans le formulaire 
@@ -80,10 +77,7 @@ const previewImage = (e) => {
     
     //style
     img.style.display= "block";
-    icon.style.display = 'none';
-    label.style.display = 'none';
-    input.style.display = 'none';
-    paragraphe.style.display = 'none';
+    modalFormContent.classList.add('disabled');
     
 }
 // Réinitialise le formulaire lors du retour ou fermeture de la modal
@@ -93,7 +87,5 @@ const removeForm = () => {
     
     //style
     img.style.display= "none";
-    icon.style.display = 'block';
-    label.style.display = 'flex';
-    paragraphe.style.display = 'block';
+    modalFormContent.classList.remove('disabled');
 }

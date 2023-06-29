@@ -39,21 +39,23 @@
 				</div>
 				    <form class="modal-form">
 						<div class="modal-form-image">
-							<img src="#" alt="previsualisation image" class="modal-form-image__img">
-							<i class="modal-form-image__icon fa-regular fa-image"></i>
-							<label class="modal-form-image__label">+ Ajouter photo
-							<input class="modal-form-image__input modal-input" type="file" name="image" accept=".jpg, .png" required>
-							</label>
-							<p class="modal-form-image__p">jpg; png: 4mo max</p>
+							<img src="#" alt="image formulaire" class="modal-form-image__img">
+							<div class="modal-form-content">
+								<i class="modal-form-content__icon fa-regular fa-image"></i>
+								<label class="modal-form-content__label">+ Ajouter photo
+								<input class="modal-form-content__input modal-input" type="file" name="image" accept=".jpg, .png">
+								</label>
+								<p class="modal-form-content__p">jpg; png: 4mo max</p>
+							</div>
 						</div>
 						<div class="modal-form-info">
 							<label class="modal-label modal-form-info__title" for="text-title">
 								Titre
-								<input class="modal-input modal-form-info__text" id="text-title" type="text" name="title" required>
+								<input class="modal-input modal-form-info__text" id="text-title" type="text" name="title">
 							</label>
 							<label class="modal-label modal-form-info__categories" for="categories">
 								Catégorie
-								<select class="modal-input modal-form-info__select" id="categories" name="categories" required></select>
+								<select class="modal-input modal-form-info__select" id="categories" name="categories"></select>
 							</label>
 						</div>
 							<span class="modal-footer__border"></span>
