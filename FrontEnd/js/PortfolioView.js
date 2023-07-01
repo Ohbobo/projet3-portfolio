@@ -12,6 +12,7 @@ export class PortfolioView {
       this.inputCategoriesModal = document.querySelector('.modal-form-info__select');
       this.deleteAllWorksBtn = document.querySelector('.modal-footer__remove-all');
       this.modalFormContent = document.querySelector('.modal-form-content');
+
   }
   // EventListener
   events() {
@@ -116,16 +117,21 @@ export class PortfolioView {
       modalFormImg.style.display= "none";
       this.modalFormContent.classList.remove('disabled');
     } else {
-    const formData = new FormData();
-    formData.append('image', imageUrl.files[0]);
-    formData.append('title', title.value);
-    formData.append('category', categoryId.value);
-    
-    await this.model.addWorks(formData);
-    await this.model.fetchData();// Mettre à jour les données après l'ajout
-    this.updateData();// Mettre à jour l'affichage après l'ajout
-    this.form.reset();
-    document.querySelector('.modal-form-image__img').src = "";
+      const formData = new FormData();
+      formData.append('image', imageUrl.files[0]);
+      formData.append('title', title.value);
+      formData.append('category', categoryId.value);
+      
+      await this.model.addWorks(formData);
+      await this.model.fetchData();// Mettre à jour les données après l'ajout
+      this.updateData();// Mettre à jour l'affichage après l'ajout
+      
+      document.querySelector('.modal-footer__span').classList.add('active');
+      setTimeout(() => {  
+        document.querySelector('.modal-footer__submit').classList.remove('active');
+        document.querySelector('.second-modal').classList.remove('active');
+        document.querySelector('.first-modal').classList.remove('active');
+      }, 2000);
     }
   }
 }

@@ -34,6 +34,8 @@ export const initModal = () => {
         document.querySelector('.modal-footer__add').addEventListener('click', () => {
             document.querySelector('.first-modal').classList.add('active');
             document.querySelector('.second-modal').classList.add('active');
+            document.querySelector('.modal-footer__span').classList.remove('active');
+            removeForm();
         });
     
     }
@@ -55,7 +57,7 @@ export const initModal = () => {
                 submitButton.classList.add('active');
             }
         })
-    })
+    });
     openModal();
     closeModal();
     openSecondModal();

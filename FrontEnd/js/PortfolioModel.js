@@ -1,11 +1,10 @@
 import { fetchCategories, fetchWorks, fetchDeleteWorks, fetchAddWorks } from "./api.js";
 
 export class PortfolioModel {
-    constructor(view) {
+    constructor() {
         this.buttonsData = [];
         this.worksData = [];
         this.filters = [];
-        this.view = view;
     }
 
     async fetchData() {
@@ -43,10 +42,9 @@ export class PortfolioModel {
             await fetchDeleteWorks(work.id);
             this.worksData = this.worksData.filter(item => item.id !== work.id);
             this.filters = this.filters.filter(item => item.id !== work.id);
-            console.log(`La ressource ${work.id} a été supprimée avec succès`);
           }
         } catch (error) {
-          console.error(error);
+            console.error("Une erreur s'est produite lors de la suppression:", error);
         }
     }
     //post
