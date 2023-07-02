@@ -112,10 +112,6 @@ export class PortfolioView {
 
     if(!imageUrl.files[0]||!title.value||!categoryId.value){
       alert("Veuillez remplir tous les champs");
-      this.form.reset();
-      modalFormImg.src = "";
-      modalFormImg.style.display= "none";
-      this.modalFormContent.classList.remove('disabled');
     } else {
       const formData = new FormData();
       formData.append('image', imageUrl.files[0]);
